@@ -180,11 +180,11 @@ def calcIouMatrix(
     inter_xmax = np.minimum(xmax_1, np.transpose(xmax_2))
     inter_ymax = np.minimum(ymax_1, np.transpose(ymax_2))
 
-    interArea = np.maximum((inter_xmax - inter_xmin + 1), 0) * np.maximum((inter_ymax - inter_ymin + 1), 0)
+    inter_area = np.maximum((inter_xmax - inter_xmin + 1), 0) * np.maximum((inter_ymax - inter_ymin + 1), 0)
 
     area_1 = (xmax_1 - xmin_1 + 1) * (ymax_1 - ymin_1 + 1)
     area_2 = (xmax_2 - xmin_2 + 1) * (ymax_2 - ymin_2 + 1)
-    iou = interArea / (area_1 + np.transpose(area_2) - interArea + 1e-10)
+    iou = inter_area / (area_1 + np.transpose(area_2) - inter_area + 1e-10)
 
     return iou
 
@@ -210,10 +210,10 @@ def calcOverlapMatrix(
     inter_xmax = np.minimum(xmax_1, np.transpose(xmax_2))
     inter_ymax = np.minimum(ymax_1, np.transpose(ymax_2))
 
-    interArea = np.maximum((inter_xmax - inter_xmin + 1), 0) * np.maximum((inter_ymax - inter_ymin + 1), 0)
+    inter_area = np.maximum((inter_xmax - inter_xmin + 1), 0) * np.maximum((inter_ymax - inter_ymin + 1), 0)
 
     area_2 = (xmax_2 - xmin_2 + 1) * (ymax_2 - ymin_2 + 1)
-    overlap = interArea / (np.transpose(area_2) + 1e-10)
+    overlap = inter_area / (np.transpose(area_2) + 1e-10)
 
     return overlap
 
