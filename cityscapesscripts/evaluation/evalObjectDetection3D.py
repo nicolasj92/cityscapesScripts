@@ -102,7 +102,6 @@ class Box3DEvaluator:
         ) -> None:
 
         self.eval_params = evaluation_params
-        self._num_steps = 50
 
         # dict containing the GTs per image
         self.gts = {}
@@ -120,7 +119,9 @@ class Box3DEvaluator:
         self._stats = {}
 
         # the actual confidence thresholds
-        self._conf_thresholds = np.arange(0.0, 1.01, 1.0 / self._num_steps)
+        self._conf_thresholds = np.arange(
+            0.0, 1.01, 1.0 / self.eval_params.num_conf
+            )
 
         # the actual depth bins
         self._depth_bins = np.arange(0, self.eval_params.max_depth + 1, self.eval_params.step_size)
@@ -1047,7 +1048,7 @@ def evaluate3DObjectDetection(
     logger.info(" -> Max depth [m]: %d"   % eval_params.max_depth)
     logger.info(" -> Step size [m]: %.2f" % eval_params.step_size)
     if boxEvaluator.eval_params.cw == -1.0:
-        logger.info(" -> cw           : %s" % "-- Automatically determined --")
+        logger.info(" -> cw           : %s" % "-- automatically determined --")
     else:
         logger.info(" -> cw           : %.2f" % boxEvaluator.eval_params.cw)
 

@@ -104,6 +104,7 @@ class EvaluationParameters:
         step_size: step/bin size for DDTP metrics
         matching_method: use modal or amodal 2D boxes for matching
         cw: working confidence. If set to -1, it will be determined automatically
+        num_conf: number of different confidence thresholds used for AP calculation
     """
 
     def __init__(
@@ -113,7 +114,8 @@ class EvaluationParameters:
         max_depth: int=100,
         step_size: int=5,
         matching_method: int=MATCHING_AMODAL,
-        cw: float=-1.
+        cw: float=-1.,
+        num_conf: int=50
         ) -> None:
 
         self._labels_to_evaluate = labels_to_evaluate
@@ -122,6 +124,7 @@ class EvaluationParameters:
         self._step_size = step_size
         self._matching_method = matching_method
         self._cw = cw
+        self._num_conf = num_conf
 
     @property
     def labels_to_evaluate(self):
@@ -150,6 +153,10 @@ class EvaluationParameters:
     @cw.setter
     def cw(self, cw):
         self._cw = cw
+
+    @property
+    def num_conf(self):
+        return self._num_conf
 
 def calcIouMatrix(
     gts: np.ndarray,
