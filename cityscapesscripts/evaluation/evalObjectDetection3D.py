@@ -745,7 +745,7 @@ class Box3DEvaluator:
             "matching_method": modal_amodal_modifier
         }
 
-        # calculate detection scores and them to results
+        # calculate detection scores and add them to results
         self.results["Detection_Score"] = {}
         logger.info("========================")
         logger.info("======= Results ========")
