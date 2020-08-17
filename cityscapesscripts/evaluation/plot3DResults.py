@@ -23,7 +23,7 @@ def create_table_row(
         key: str,
         subdict_key: str = None
     ):
-    """Creates a row presentig scores for all classes in category ``key`` in ``data_dict``.
+    """Creates a row presenting scores for all classes in category ``key`` in ``data_dict``.
 
     Args:
         axis (Axes): Axes-instances to use for the subplot
