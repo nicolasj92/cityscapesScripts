@@ -263,7 +263,7 @@ class Box3DEvaluator:
         self._calculateAp()
 
         logger.info("Calculate TP stats...")
-        # calculate FP stats (center dist, size similarity, orientation score)
+        # calculate TP stats (center dist, size similarity, orientation score)
         self._calcTpStats()
 
     def saveResults(self, result_folder: str) -> str:
