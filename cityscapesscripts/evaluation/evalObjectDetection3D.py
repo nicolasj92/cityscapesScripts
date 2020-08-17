@@ -300,7 +300,7 @@ class Box3DEvaluator:
         # with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
         #    results = list(tqdm(executor.map(self._worker, self.gts.keys()), total=len(self.gts.keys())))
 
-        # update internal result dict with the curresponding results
+        # update internal result dict with the corresponding results
         for thread_result in results:
             for score, eval_data in thread_result.items():
                 data = eval_data["data"]
