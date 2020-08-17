@@ -82,7 +82,7 @@ def printErrorAndExit(msg):
 
 class Box3DEvaluator:
     """The Box3DEvaluator object contains the data as well as the parameters
-    for the evluation of the dataset.
+    for the evaluation of the dataset.
 
     :param eval_params: evaluation params including max depth, min iou etc.
     :type eval_params: EvaluationParameters
