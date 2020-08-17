@@ -111,7 +111,7 @@ def create_spider_chart_plot(
         accept_classes (list of str): List of class-names to use for the spider-chart.
     """
 
-    # create lables
+    # create labels
     lables = [category.replace("_", "-") for category in categories]
 
     # Calculate metrics for each class
