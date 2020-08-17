@@ -20,7 +20,6 @@ from typing import (
 from pyquaternion import Quaternion
 from tqdm import tqdm
 from copy import deepcopy
-import concurrent.futures
 
 from cityscapesscripts.helpers.labels import labels
 from cityscapesscripts.evaluation.objectDetectionHelpers import (
@@ -295,11 +294,6 @@ class Box3DEvaluator:
         results = []
         for x in tqdm(self.gts.keys()):
             results.append(self._worker(x))
-
-        # multi threaded
-        # keep in mind that this will not work out of the box due the global interpreter lock
-        # with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
-        #    results = list(tqdm(executor.map(self._worker, self.gts.keys()), total=len(self.gts.keys())))
 
         # update internal result dict with the corresponding results
         for thread_result in results:
