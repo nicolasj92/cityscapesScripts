@@ -1070,13 +1070,13 @@ def main():
         'CITYSCAPES_DATASET', os.path.join(
             os.path.dirname(os.path.realpath(__file__)), '..', '..')
     )
-    gtFolder = os.path.join(cityscapesPath, "box3Dgt")
+    gtFolder = os.path.join(cityscapesPath, "gtBbox3d")
 
     predictionPath = os.environ.get(
         'CITYSCAPES_RESULTS',
         os.path.join(cityscapesPath, "results")
     )
-    predictionFolder = os.path.join(predictionPath, "box3Dpred")
+    predictionFolder = os.path.join(predictionPath, "predBbox3d")
 
     parser = argparse.ArgumentParser()
     # setup location
@@ -1084,7 +1084,7 @@ def main():
                         dest="gtFolder",
                         help='''path to folder that contains ground truth *.json files. If the
                             argument is not provided this script will look for the *.json files in
-                            the 'box3dgt' folder in CITYSCAPES_DATASET.
+                            the 'gtBbox3d' folder in CITYSCAPES_DATASET.
                         ''',
                         default=gtFolder,
                         type=str,
@@ -1094,7 +1094,7 @@ def main():
                         dest="predictionFolder",
                         help='''path to folder that contains ground truth *.json files. If the
                             argument is not provided this script will look for the *.json files in
-                            the 'box3dpred' folder in CITYSCAPES_RESULTS.
+                            the 'predBbox3d' folder in CITYSCAPES_RESULTS.
                         ''',
                         default=predictionFolder,
                         type=str,
